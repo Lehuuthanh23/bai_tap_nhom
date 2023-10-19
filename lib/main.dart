@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
       title: 'Mobile Shop App',
       theme: ThemeData(
         primarySwatch: Colors.amber,
-        //fontFamily: GoogleFonts.openSans().fontFamily,
       ),
       initialRoute: '/',
       routes: {

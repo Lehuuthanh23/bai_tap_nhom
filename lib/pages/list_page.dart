@@ -1,6 +1,4 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
 import '../widgets/drawer.dart';
 import '../widgets/list_entry.dart';
 
@@ -12,10 +10,9 @@ class ListScreen extends StatelessWidget {
     var scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
       key: scaffoldKey,
-      drawer: MyDrawer(
+      drawer: const MyDrawer(
         idx: 0,
       ),
-
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -43,9 +40,6 @@ class ListScreen extends StatelessWidget {
           ),
         ),
       ),
-      // drawer: MyDrawer(
-      //   idx: 0,
-      // ),
     );
   }
 }
