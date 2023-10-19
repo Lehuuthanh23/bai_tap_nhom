@@ -1,10 +1,11 @@
-import 'dart:math';
-
-import 'package:bai_tap_nhom/widgets/drawer.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+import '../widgets/drawer.dart';
+import '../widgets/list_entry.dart';
+
+class ListScreen extends StatelessWidget {
+  const ListScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,13 +13,14 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       key: scaffoldKey,
       drawer: MyDrawer(
-        idx: 1,
+        idx: 0,
       ),
+
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           Text(
-            'HOME',
+            'LIST',
             style: Theme.of(context).textTheme.displayMedium,
           ),
           IconButton(
@@ -32,23 +34,18 @@ class HomeScreen extends StatelessWidget {
         ]),
         leading: const Text(""),
       ),
-      body: buildHomePage(col: 6, row: 10),
-    );
-  }
-
-  GridView buildHomePage({required int col, required int row}) {
-    var ran = Random();
-    return GridView.builder(
-      gridDelegate:
-          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: col),
-      itemCount: col * row,
-      itemBuilder: (context, index) {
-        return Container(
-          color: Color.fromRGBO(
-              ran.nextInt(255), ran.nextInt(255), ran.nextInt(255), 1),
-          margin: const EdgeInsets.all(5),
-        );
-      },
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: const [ListEntry()],
+          ),
+        ),
+      ),
+      // drawer: MyDrawer(
+      //   idx: 0,
+      // ),
     );
   }
 }

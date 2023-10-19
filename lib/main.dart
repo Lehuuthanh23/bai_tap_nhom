@@ -1,6 +1,7 @@
+import 'package:bai_tap_nhom/pages/list_page.dart';
 import 'package:bai_tap_nhom/pages/home_page.dart';
-import 'package:bai_tap_nhom/widgets/home.dart';
 import 'package:flutter/material.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -17,7 +18,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.amber,
         //fontFamily: GoogleFonts.openSans().fontFamily,
       ),
-      home: const Home_Page(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomeScreen(),
+        '/list': (context) => const ListScreen()
+      },
     );
   }
 }
